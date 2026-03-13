@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kinetic Energy Fact or Fiction - Physics Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.header {
+    padding: 40px 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #FFE6EE;
+    flex: 1;
+}
+
+.back-btn, .home-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin: 0 5px;
+}
+
+.back-btn:hover, .home-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+.content-area {
+    padding: 40px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px;
+}
+
+.quiz-container {
+    background: rgba(255, 255, 255, 0.15);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    padding: 50px;
+    color: white;
+    width: 100%;
+    max-width: 800px;
+    backdrop-filter: blur(10px);
+}
+
+.quiz-container h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #FFE6EE;
+}
+
+.statement {
+    margin-bottom: 35px;
+}
+
+.statement p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 15px;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.true-btn, .false-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.true-btn:hover, .false-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.true-btn.selected {
+    background: #90EE90;
+    color: #333;
+    border-color: #90EE90;
+}
+
+.false-btn.selected {
+    background: #FF6B6B;
+    color: white;
+    border-color: #FF6B6B;
+}
+
+.answer {
+    background: rgba(255, 182, 217, 0.2);
+    border-left: 4px solid #FFE6EE;
+    padding: 15px 20px;
+    border-radius: 5px;
+    color: rgba(255, 255, 255, 0.9);
+    display: none;
+}
+
+.answer.show {
+    display: block;
+}
+
+.answer-text {
+    font-style: italic;
+}
+
+.result {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.correct {
+    color: #90EE90;
+}
+
+.incorrect {
+    color: #FF6B6B;
+}
+
+@media (max-width: 900px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .content-area {
+        padding: 20px;
+    }
+
+    .quiz-container {
+        padding: 30px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>✅ Kinetic Energy Fact or Fiction</h1>
+    <div>
+        <a href="kinetic.html" class="back-btn">← Back</a>
+        <a href="index.html" class="home-btn">Home</a>
+    </div>
+</div>
+
+<div class="content-area">
+    <div class="quiz-container">
+        <h2>True or False? Click to reveal the answer!</h2>
+
+        <div class="statement">
+            <p><strong>Statement 1: Kinetic energy only exists when an object is moving.</strong></p>
+            <div class="buttons">
+                <button class="true-btn" onclick="selectAnswer(this, 0, true)">TRUE</button>
+                <button class="false-btn" onclick="selectAnswer(this, 0, false)">FALSE</button>
+            </div>
+            <button onclick="revealAnswer(0, true)" style="background: rgba(255, 182, 217, 0.8); color: #b30059; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-weight: 600; margin-top: 10px;">Reveal Answer</button>
+            <div class="answer" id="answer0">
+                <div class="result" id="result0"></div>
+                <div class="answer-text">Correct! KE = ½mv². When v = 0 (stationary), KE = 0</div>
+            </div>
+        </div>
+
+        <div class="statement">
+            <p><strong>Statement 2: Doubling the mass doubles the kinetic energy.</strong></p>
+            <div class="buttons">
+                <button class="true-btn" onclick="selectAnswer(this, 1, true)">TRUE</button>
+                <button class="false-btn" onclick="selectAnswer(this, 1, false)">FALSE</button>
+            </div>
+            <button onclick="revealAnswer(1, true)" style="background: rgba(255, 182, 217, 0.8); color: #b30059; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-weight: 600; margin-top: 10px;">Reveal Answer</button>
+            <div class="answer" id="answer1">
+                <div class="result" id="result1"></div>
+                <div class="answer-text">Correct! KE ∝ m, so doubling mass doubles KE (if velocity stays same)</div>
+            </div>
+        </div>
+
+        <div class="statement">
+            <p><strong>Statement 3: Doubling the velocity doubles the kinetic energy.</strong></p>
+            <div class="buttons">
+                <button class="true-btn" onclick="selectAnswer(this, 2, true)">TRUE</button>
+                <button class="false-btn" onclick="selectAnswer(this, 2, false)">FALSE</button>
+            </div>
+            <button onclick="revealAnswer(2, false)" style="background: rgba(255, 182, 217, 0.8); color: #b30059; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-weight: 600; margin-top: 10px;">Reveal Answer</button>
+            <div class="answer" id="answer2">
+                <div class="result" id="result2"></div>
+                <div class="answer-text">Correct! KE ∝ v², so doubling velocity quadruples KE</div>
+            </div>
+        </div>
+
+        <div class="statement">
+            <p><strong>Statement 4: A light fast object can have more KE than a heavy slow object.</strong></p>
+            <div class="buttons">
+                <button class="true-btn" onclick="selectAnswer(this, 3, true)">TRUE</button>
+                <button class="false-btn" onclick="selectAnswer(this, 3, false)">FALSE</button>
+            </div>
+            <button onclick="revealAnswer(3, true)" style="background: rgba(255, 182, 217, 0.8); color: #b30059; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-weight: 600; margin-top: 10px;">Reveal Answer</button>
+            <div class="answer" id="answer3">
+                <div class="result" id="result3"></div>
+                <div class="answer-text">Correct! KE depends on both m and v². A light but very fast object can exceed a slow heavy one</div>
+            </div>
+        </div>
+
+        <div class="statement">
+            <p><strong>Statement 5: Kinetic energy can be negative.</strong></p>
+            <div class="buttons">
+                <button class="true-btn" onclick="selectAnswer(this, 4, true)">TRUE</button>
+                <button class="false-btn" onclick="selectAnswer(this, 4, false)">FALSE</button>
+            </div>
+            <button onclick="revealAnswer(4, false)" style="background: rgba(255, 182, 217, 0.8); color: #b30059; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-weight: 600; margin-top: 10px;">Reveal Answer</button>
+            <div class="answer" id="answer4">
+                <div class="result" id="result4"></div>
+                <div class="answer-text">Correct! KE = ½mv² is always positive (or zero). Both m and v² are positive</div>
+            </div>
+        </div>
+
+        <div class="statement">
+            <p><strong>Statement 6: An object moving in a circle at constant speed has zero kinetic energy.</strong></p>
+            <div class="buttons">
+                <button class="true-btn" onclick="selectAnswer(this, 5, true)">TRUE</button>
+                <button class="false-btn" onclick="selectAnswer(this, 5, false)">FALSE</button>
+            </div>
+            <button onclick="revealAnswer(5, false)" style="background: rgba(255, 182, 217, 0.8); color: #b30059; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-weight: 600; margin-top: 10px;">Reveal Answer</button>
+            <div class="answer" id="answer5">
+                <div class="result" id="result5"></div>
+                <div class="answer-text">Correct! It has KE because it's moving (v ≠ 0). The speed is constant, so KE is constant</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+let selectedAnswers = [null, null, null, null, null, null];
+
+function selectAnswer(element, index, isTrue) {
+    const parent = element.parentElement;
+    const buttons = parent.querySelectorAll('button');
+    buttons.forEach(btn => btn.classList.remove('selected'));
+    element.classList.add('selected');
+    selectedAnswers[index] = isTrue;
+}
+
+function revealAnswer(index, correctAnswer) {
+    const answerDiv = document.getElementById(`answer${index}`);
+    const resultDiv = document.getElementById(`result${index}`);
+    
+    if (selectedAnswers[index] === null) {
+        resultDiv.textContent = '⚠️ Please select TRUE or FALSE first!';
+        resultDiv.className = 'result incorrect';
+    } else if (selectedAnswers[index] === correctAnswer) {
+        resultDiv.textContent = '✅ Correct!';
+        resultDiv.className = 'result correct';
+    } else {
+        resultDiv.textContent = '❌ Incorrect. Check the explanation below.';
+        resultDiv.className = 'result incorrect';
+    }
+    
+    answerDiv.classList.add('show');
+}
+</script>
+
+</body>
+</html>

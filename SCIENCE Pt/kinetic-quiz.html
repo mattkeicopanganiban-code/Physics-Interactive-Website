@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kinetic Energy Quiz - Physics Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.header {
+    padding: 40px 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #FFE6EE;
+    flex: 1;
+}
+
+.back-btn, .home-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin: 0 5px;
+}
+
+.back-btn:hover, .home-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+.content-area {
+    padding: 40px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px;
+}
+
+.quiz-container {
+    background: rgba(255, 255, 255, 0.15);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    padding: 50px;
+    color: white;
+    width: 100%;
+    max-width: 800px;
+    backdrop-filter: blur(10px);
+}
+
+.quiz-container h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #FFE6EE;
+}
+
+.question {
+    margin-bottom: 40px;
+}
+
+.question p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.95);
+    white-space: pre-wrap;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.option {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    padding: 12px 15px;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.option:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.option.selected {
+    background: rgba(255, 182, 217, 0.4);
+    border-color: #FFE6EE;
+}
+
+.submit-btn {
+    background: rgba(255, 182, 217, 0.8);
+    color: #b30059;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    background: rgba(255, 182, 217, 1);
+    transform: translateY(-3px);
+}
+
+.answer {
+    background: rgba(255, 182, 217, 0.2);
+    border-left: 4px solid #FFE6EE;
+    padding: 15px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    color: rgba(255, 255, 255, 0.9);
+    display: none;
+}
+
+.answer.show {
+    display: block;
+}
+
+.answer-text {
+    font-style: italic;
+}
+
+.result {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.correct {
+    color: #90EE90;
+}
+
+.incorrect {
+    color: #FF6B6B;
+}
+
+@media (max-width: 900px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .content-area {
+        padding: 20px;
+    }
+
+    .quiz-container {
+        padding: 30px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>🧪 Kinetic Energy Quiz</h1>
+    <div>
+        <a href="kinetic.html" class="back-btn">← Back</a>
+        <a href="index.html" class="home-btn">Home</a>
+    </div>
+</div>
+
+<div class="content-area">
+    <div class="quiz-container">
+        <h2>Kinetic Energy Quiz - Test Your Knowledge!</h2>
+
+        <div class="question">
+            <p><strong>Question 1: What is the formula for kinetic energy?</strong></p>
+            <div class="options">
+                <div class="option" onclick="selectOption(this, 0, 0)">A) KE = mgh</div>
+                <div class="option" onclick="selectOption(this, 0, 1)">B) KE = ½mv²</div>
+                <div class="option" onclick="selectOption(this, 0, 2)">C) KE = Fd</div>
+                <div class="option" onclick="selectOption(this, 0, 3)">D) KE = at</div>
+            </div>
+            <button class="submit-btn" onclick="checkAnswer(0, 1)">Submit Answer</button>
+            <div class="answer" id="answer0">
+                <div class="result" id="result0"></div>
+                <div class="answer-text">KE = ½mv², where m is mass and v is velocity. Kinetic energy depends on velocity squared!</div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 2: A 2kg object moves at 5 m/s. What is its kinetic energy?</strong></p>
+            <div class="options">
+                <div class="option" onclick="selectOption(this, 1, 0)">A) 10 Joules</div>
+                <div class="option" onclick="selectOption(this, 1, 1)">B) 20 Joules</div>
+                <div class="option" onclick="selectOption(this, 1, 2)">C) 25 Joules</div>
+                <div class="option" onclick="selectOption(this, 1, 3)">D) 50 Joules</div>
+            </div>
+            <button class="submit-btn" onclick="checkAnswer(1, 2)">Submit Answer</button>
+            <div class="answer" id="answer1">
+                <div class="result" id="result1"></div>
+                <div class="answer-text">KE = ½mv² = ½ × 2 × (5)² = 1 × 25 = 25 Joules</div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 3: If you double the velocity of an object, what happens to its kinetic energy?</strong></p>
+            <div class="options">
+                <div class="option" onclick="selectOption(this, 2, 0)">A) It doubles</div>
+                <div class="option" onclick="selectOption(this, 2, 1)">B) It triples</div>
+                <div class="option" onclick="selectOption(this, 2, 2)">C) It quadruples</div>
+                <div class="option" onclick="selectOption(this, 2, 3)">D) It increases by half</div>
+            </div>
+            <button class="submit-btn" onclick="checkAnswer(2, 2)">Submit Answer</button>
+            <div class="answer" id="answer2">
+                <div class="result" id="result2"></div>
+                <div class="answer-text">It quadruples! Since KE ∝ v², doubling v means KE increases by 2² = 4 times</div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 4: A stationary object has what kinetic energy?</strong></p>
+            <div class="options">
+                <div class="option" onclick="selectOption(this, 3, 0)">A) The same as if it were moving</div>
+                <div class="option" onclick="selectOption(this, 3, 1)">B) Undefined</div>
+                <div class="option" onclick="selectOption(this, 3, 2)">C) Zero</div>
+                <div class="option" onclick="selectOption(this, 3, 3)">D) Infinite</div>
+            </div>
+            <button class="submit-btn" onclick="checkAnswer(3, 2)">Submit Answer</button>
+            <div class="answer" id="answer3">
+                <div class="result" id="result3"></div>
+                <div class="answer-text">Zero! KE = ½mv² = 0 when v = 0 (object is not moving)</div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 5: A 4kg object is moving at 3 m/s. What is its kinetic energy?</strong></p>
+            <div class="options">
+                <div class="option" onclick="selectOption(this, 4, 0)">A) 12 Joules</div>
+                <div class="option" onclick="selectOption(this, 4, 1)">B) 18 Joules</div>
+                <div class="option" onclick="selectOption(this, 4, 2)">C) 24 Joules</div>
+                <div class="option" onclick="selectOption(this, 4, 3)">D) 36 Joules</div>
+            </div>
+            <button class="submit-btn" onclick="checkAnswer(4, 1)">Submit Answer</button>
+            <div class="answer" id="answer4">
+                <div class="result" id="result4"></div>
+                <div class="answer-text">KE = ½mv² = ½ × 4 × (3)² = 2 × 9 = 18 Joules</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+let selectedAnswers = [null, null, null, null, null];
+
+function selectOption(element, questionIndex, optionIndex) {
+    const options = element.parentElement.querySelectorAll('.option');
+    options.forEach(opt => opt.classList.remove('selected'));
+    element.classList.add('selected');
+    selectedAnswers[questionIndex] = optionIndex;
+}
+
+function checkAnswer(questionIndex, correctIndex) {
+    const answerDiv = document.getElementById(`answer${questionIndex}`);
+    const resultDiv = document.getElementById(`result${questionIndex}`);
+    
+    if (selectedAnswers[questionIndex] === null) {
+        resultDiv.textContent = '⚠️ Please select an answer first!';
+        resultDiv.className = 'result incorrect';
+    } else if (selectedAnswers[questionIndex] === correctIndex) {
+        resultDiv.textContent = '✅ Correct!';
+        resultDiv.className = 'result correct';
+    } else {
+        resultDiv.textContent = '❌ Incorrect. Try again or check the explanation below.';
+        resultDiv.className = 'result incorrect';
+    }
+    
+    answerDiv.classList.add('show');
+}
+</script>
+
+</body>
+</html>

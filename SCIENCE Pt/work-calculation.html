@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Work Calculation Challenge - Physics Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.header {
+    padding: 40px 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #FFE6EE;
+    flex: 1;
+}
+
+.back-btn, .home-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin: 0 5px;
+}
+
+.back-btn:hover, .home-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+.content-area {
+    padding: 40px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px;
+}
+
+.quiz-container {
+    background: rgba(255, 255, 255, 0.15);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    padding: 50px;
+    color: white;
+    width: 100%;
+    max-width: 800px;
+    backdrop-filter: blur(10px);
+}
+
+.quiz-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #FFE6EE;
+}
+
+.quiz-container p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.answer {
+    background: rgba(255, 182, 217, 0.2);
+    border-left: 4px solid #FFE6EE;
+    padding: 15px 20px;
+    margin-top: 15px;
+    border-radius: 5px;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 900px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .content-area {
+        padding: 20px;
+    }
+
+    .quiz-container {
+        padding: 30px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>🔢 Work Calculation Challenge</h1>
+    <div>
+        <a href="work.html" class="back-btn">← Back</a>
+        <a href="index.html" class="home-btn">Home</a>
+    </div>
+</div>
+
+<div class="content-area">
+    <div class="quiz-container">
+        <h2>Problem 1: Basic Work Calculation</h2>
+        <p>A person pushes a box with 100N of force across the floor for 8 meters. Calculate the work done.</p>
+        <div class="answer">Work = Force × Distance = 100N × 8m = 800 Joules</div>
+
+        <h2 style="margin-top: 30px;">Problem 2: Finding Distance</h2>
+        <p>If 2000 Joules of work is done by a 50N force, how far was the object moved?</p>
+        <div class="answer">Distance = Work ÷ Force = 2000J ÷ 50N = 40 meters</div>
+
+        <h2 style="margin-top: 30px;">Problem 3: Finding Force</h2>
+        <p>A 5000 Joule of work is done to move an object 25 meters. What force was applied?</p>
+        <div class="answer">Force = Work ÷ Distance = 5000J ÷ 25m = 200 Newtons</div>
+
+        <h2 style="margin-top: 30px;">Problem 4: Power Calculation</h2>
+        <p>A worker does 1200 Joules of work in 4 seconds. What is the power output?</p>
+        <div class="answer">Power = Work ÷ Time = 1200J ÷ 4s = 300 Watts</div>
+
+        <h2 style="margin-top: 30px;">Problem 5: Multi-step Problem</h2>
+        <p>An elevator lifts a 600kg person 10 meters up in 5 seconds. Calculate (a) the work done and (b) the power output. (Use g = 10 m/s²)</p>
+        <div class="answer">
+            (a) Work = Force × Distance = (mass × g) × height = (600 × 10) × 10 = 60,000 Joules<br>
+            (b) Power = Work ÷ Time = 60,000J ÷ 5s = 12,000 Watts or 12 kilowatts
+        </div>
+
+        <h2 style="margin-top: 30px;">Problem 6: Work with Angle</h2>
+        <p>A person pulls a sled with 150N at an angle of 0° (parallel to motion) for 20 meters. Calculate work done.</p>
+        <div class="answer">
+            Work = F × d × cos(θ) = 150N × 20m × cos(0°) = 150 × 20 × 1 = 3000 Joules<br>
+            (cos(0°) = 1, so full force contributes to work)
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

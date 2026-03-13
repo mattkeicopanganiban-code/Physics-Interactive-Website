@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Potential Energy - Physics Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.header {
+    position: relative;
+    z-index: 10;
+    padding: 40px 40px;
+    text-align: center;
+    animation: slideDown 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-title {
+    flex: 1;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #FFE6EE;
+}
+
+.back-home {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.back-home:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+.content-area {
+    position: relative;
+    z-index: 5;
+    padding: 40px 60px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.description {
+    background: rgba(255, 255, 255, 0.15);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    padding: 40px;
+    text-align: center;
+    color: white;
+    width: 100%;
+    max-width: 900px;
+    backdrop-filter: blur(10px);
+    margin-bottom: 30px;
+}
+
+.description h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #FFE6EE;
+}
+
+.description p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.game-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    text-decoration: none;
+}
+
+.game-card:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-10px);
+}
+
+.game-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.game-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.game-card p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 900px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .games-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <div class="header-title">
+        <h1>⬆️ Potential Energy</h1>
+    </div>
+    <a href="index.html" class="back-home">← Home</a>
+</div>
+
+<div class="content-area">
+    <div class="description">
+        <h2>Potential Energy</h2>
+        <p>Understand stored energy and how objects gain potential energy based on their position and height. PE = mgh for gravitational PE.</p>
+    </div>
+
+    <div class="games-grid">
+        <a href="potential-quiz.html" class="game-card">
+            <div class="game-icon">🧪</div>
+            <h3>Physics Quiz</h3>
+            <p>Test your knowledge on potential energy</p>
+        </a>
+
+        <a href="potential-factorfiction.html" class="game-card">
+            <div class="game-icon">✅</div>
+            <h3>Fact or Fiction</h3>
+            <p>True or False statements</p>
+        </a>
+
+        <a href="potential-formula.html" class="game-card">
+            <div class="game-icon">✏️</div>
+            <h3>Fill the Formula</h3>
+            <p>Complete PE equations</p>
+        </a>
+
+        <a href="potential-match.html" class="game-card">
+            <div class="game-icon">🃏</div>
+            <h3>Concept Match</h3>
+            <p>Match PE concepts</p>
+        </a>
+
+        <a href="potential-calculation.html" class="game-card">
+            <div class="game-icon">🔢</div>
+            <h3>Calculation Challenge</h3>
+            <p>Solve PE problems</p>
+        </a>
+
+        <a href="potential-sorter.html" class="game-card">
+            <div class="game-icon">📦</div>
+            <h3>Energy Sorter</h3>
+            <p>Categorize PE types</p>
+        </a>
+    </div>
+</div>
+
+</body>
+</html>
