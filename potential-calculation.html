@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Potential Energy Calculation - Physics Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.header {
+    padding: 40px 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #FFE6EE;
+    flex: 1;
+}
+
+.back-btn, .home-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin: 0 5px;
+}
+
+.back-btn:hover, .home-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+.content-area {
+    padding: 40px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px;
+}
+
+.quiz-container {
+    background: rgba(255, 255, 255, 0.15);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    padding: 50px;
+    color: white;
+    width: 100%;
+    max-width: 800px;
+    backdrop-filter: blur(10px);
+}
+
+.quiz-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #FFE6EE;
+}
+
+.quiz-container p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.answer {
+    background: rgba(255, 182, 217, 0.2);
+    border-left: 4px solid #FFE6EE;
+    padding: 15px 20px;
+    margin-top: 15px;
+    border-radius: 5px;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 900px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .content-area {
+        padding: 20px;
+    }
+
+    .quiz-container {
+        padding: 30px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>🔢 Potential Energy Calculation</h1>
+    <div>
+        <a href="potential.html" class="back-btn">← Back</a>
+        <a href="index.html" class="home-btn">Home</a>
+    </div>
+</div>
+
+<div class="content-area">
+    <div class="quiz-container">
+        <h2>Problem 1: Basic Gravitational PE</h2>
+        <p>A 2kg object is lifted to a height of 5 meters. Calculate its potential energy. (g = 10 m/s²)</p>
+        <div class="answer">PE = mgh = 2 × 10 × 5 = 100 Joules</div>
+
+        <h2 style="margin-top: 30px;">Problem 2: Finding Mass</h2>
+        <p>An object has 500 Joules of potential energy at a height of 10m. What is its mass? (g = 10 m/s²)</p>
+        <div class="answer">Mass = PE ÷ (g × h) = 500 ÷ (10 × 10) = 500 ÷ 100 = 5 kg</div>
+
+        <h2 style="margin-top: 30px;">Problem 3: Finding Height</h2>
+        <p>A 3kg object has 600 Joules of potential energy. What height is it at? (g = 10 m/s²)</p>
+        <div class="answer">Height = PE ÷ (m × g) = 600 ÷ (3 × 10) = 600 ÷ 30 = 20 meters</div>
+
+        <h2 style="margin-top: 30px;">Problem 4: Elastic PE Calculation</h2>
+        <p>A spring with spring constant k = 200 N/m is compressed 0.3m. What is its elastic PE?</p>
+        <div class="answer">PE = ½kx² = ½ × 200 × (0.3)² = 100 × 0.09 = 9 Joules</div>
+
+        <h2 style="margin-top: 30px;">Problem 5: Comparing PE at Different Heights</h2>
+        <p>A 10kg object is first at height 2m, then lifted to height 5m. Find the change in PE. (g = 10 m/s²)</p>
+        <div class="answer">
+            PE₁ = 10 × 10 × 2 = 200 J<br>
+            PE₂ = 10 × 10 × 5 = 500 J<br>
+            Change in PE = 500 - 200 = 300 Joules
+        </div>
+
+        <h2 style="margin-top: 30px;">Problem 6: Falling Object Energy Conversion</h2>
+        <p>A 4kg object falls from 6m height and hits the ground. If all PE converts to KE, what is the final KE? (g = 10 m/s²)</p>
+        <div class="answer">
+            Initial PE = mgh = 4 × 10 × 6 = 240 J<br>
+            Final KE = 240 J (by conservation of energy)<br>
+            Or using v: KE = ½mv² = ½ × 4 × v² = 240, so v = √120 ≈ 11 m/s
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

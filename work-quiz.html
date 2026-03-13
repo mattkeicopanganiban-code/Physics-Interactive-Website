@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Potential Energy Quiz - Physics Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.header {
+    padding: 40px 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #FFE6EE;
+    flex: 1;
+}
+
+.back-btn, .home-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin: 0 5px;
+}
+
+.back-btn:hover, .home-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+.content-area {
+    padding: 40px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px;
+}
+
+.quiz-container {
+    background: rgba(255, 255, 255, 0.15);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    padding: 50px;
+    color: white;
+    width: 100%;
+    max-width: 800px;
+    backdrop-filter: blur(10px);
+}
+
+.quiz-container h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #FFE6EE;
+}
+
+.question {
+    margin-bottom: 40px;
+}
+
+.question p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.95);
+    white-space: pre-wrap;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.option {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    padding: 12px 15px;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.option:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.option.selected {
+    background: rgba(255, 182, 217, 0.4);
+    border-color: #FFE6EE;
+}
+
+.submit-btn {
+    background: rgba(255, 182, 217, 0.8);
+    color: #b30059;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    background: rgba(255, 182, 217, 1);
+    transform: translateY(-3px);
+}
+
+.answer {
+    background: rgba(255, 182, 217, 0.2);
+    border-left: 4px solid #FFE6EE;
+    padding: 15px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    color: rgba(255, 255, 255, 0.9);
+    display: none;
+}
+
+.answer.show {
+    display: block;
+}
+
+.answer-text {
+    font-style: italic;
+}
+
+.result {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.correct {
+    color: #90EE90;
+}
+
+.incorrect {
+    color: #FF6B6B;
+}
+
+@media (max-width: 900px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .content-area {
+        padding: 20px;
+    }
+
+    .quiz-container {
+        padding: 30px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>🧪 Potential Energy Quiz</h1>
+    <div>
+        <a href="potential.html" class="back-btn">← Back</a>
+        <a href="index.html" class="home-btn">Home</a>
+    </div>
+</div>
+
+<div class="content-area">
+    <div class="quiz-container">
+        <h2>Potential Energy Quiz - Test Your Knowledge!</h2>
+
+        <div class="question">
+            <p><strong>Question 1: What is the formula for gravitational potential energy?</strong></p>
+            <div class="options">
+                <div class="option" onclick="selectOption(this, 0, 0)">A) PE = mgh</div>
+                <div class="option" onclick="selectOption(this, 0, 1)">B) PE = ½mv²</div>
+                <div class="option" onclick="selectOption(this, 0, 2)">C) PE = Fd</div>
+                <div class="option" onclick="selectOption(this, 0, 3)">D) PE = ma</div>
+            </div>
+            <button class="submit-btn" onclick="checkAnswer(0, 0)">Submit Answer</button>
+            <div class="answer" id="answer0">
+                <div class="result" id="result0"></div>
+                <div class="answer-text">PE = mgh, where m is mass, g is gravity (9.8 m/s² or 10 m/s²), and h is height above reference point</div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 2: A 5kg object is lifted to a height of 3 meters. What is its potential energy? (Use g = 10 m/s²)</strong></p>
+            <div class="options">
+                <div class="option" onclick="selectOption(this, 1, 0)">A) 50 Joules</div>
+                <div class="option" onclick="selectOption(this, 1, 1)">B) 100 Joules</div>
+                <div class="option" onclick="selectOption(this, 1, 2)">C) 150 Joules</div>
+                <div class="option" onclick="selectOption(this, 1, 3)">D) 200 Joules</div>
+            </div>
+            <button class="submit-btn" onclick="checkAnswer(1, 2)">Submit Answer</button>
+            <div class="answer" id="answer1">
+                <div class="result" id="result1"></div>
+                <div class="answer-text">PE = mgh = 5kg × 10 m/s² × 3m = 150 Joules</div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 3: What happens to potential energy when an object falls?</strong></p>
+            <div class="options">
+                <div class="option" onclick="selectOption(this, 2, 0)">A) It increases</div>
+                <div class="option" onclick="selectOption(this, 2, 1)">B) It decreases</div>
+                <div class="option" onclick="selectOption(this, 2, 2)">C) It stays the same</div>
+                <div class="option" onclick="selectOption(this, 2, 3)">D) It changes randomly</div>
+            </div>
+            <button class="submit-btn" onclick="checkAnswer(2, 1)">Submit Answer</button>
+            <div class="answer" id="answer2">
+                <div class="result" id="result2"></div>
+                <div class="answer-text">PE decreases as height decreases. The PE is converted to KE as the object falls</div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 4: Which type of potential energy does a stretched spring have?</strong></p>
+            <div class="options">
+                <div class="option" onclick="selectOption(this, 3, 0)">A) Gravitational PE</div>
+                <div class="option" onclick="selectOption(this, 3, 1)">B) Elastic PE</div>
+                <div class="option" onclick="selectOption(this, 3, 2)">C) Chemical PE</div>
+                <div class="option" onclick="selectOption(this, 3, 3)">D) Thermal PE</div>
+            </div>
+            <button class="submit-btn" onclick="checkAnswer(3, 1)">Submit Answer</button>
+            <div class="answer" id="answer3">
+                <div class="result" id="result3"></div>
+                <div class="answer-text">Elastic PE is energy stored in deformed elastic objects like springs, rubber bands, and bowstrings</div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 5: An object has 500 Joules of potential energy at a height of 10m. What is its mass? (Use g = 10 m/s²)</strong></p>
+            <div class="options">
+                <div class="option" onclick="selectOption(this, 4, 0)">A) 3 kg</div>
+                <div class="option" onclick="selectOption(this, 4, 1)">B) 4 kg</div>
+                <div class="option" onclick="selectOption(this, 4, 2)">C) 5 kg</div>
+                <div class="option" onclick="selectOption(this, 4, 3)">D) 6 kg</div>
+            </div>
+            <button class="submit-btn" onclick="checkAnswer(4, 2)">Submit Answer</button>
+            <div class="answer" id="answer4">
+                <div class="result" id="result4"></div>
+                <div class="answer-text">m = PE ÷ (g × h) = 500 ÷ (10 × 10) = 500 ÷ 100 = 5 kg</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+let selectedAnswers = [null, null, null, null, null];
+
+function selectOption(element, questionIndex, optionIndex) {
+    const options = element.parentElement.querySelectorAll('.option');
+    options.forEach(opt => opt.classList.remove('selected'));
+    element.classList.add('selected');
+    selectedAnswers[questionIndex] = optionIndex;
+}
+
+function checkAnswer(questionIndex, correctIndex) {
+    const answerDiv = document.getElementById(`answer${questionIndex}`);
+    const resultDiv = document.getElementById(`result${questionIndex}`);
+    
+    if (selectedAnswers[questionIndex] === null) {
+        resultDiv.textContent = '⚠️ Please select an answer first!';
+        resultDiv.className = 'result incorrect';
+    } else if (selectedAnswers[questionIndex] === correctIndex) {
+        resultDiv.textContent = '✅ Correct!';
+        resultDiv.className = 'result correct';
+    } else {
+        resultDiv.textContent = '❌ Incorrect. Try again or check the explanation below.';
+        resultDiv.className = 'result incorrect';
+    }
+    
+    answerDiv.classList.add('show');
+}
+</script>
+
+</body>
+</html>

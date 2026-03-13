@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kinetic Energy Sorter - Physics Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.header {
+    padding: 40px 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #FFE6EE;
+    flex: 1;
+}
+
+.back-btn, .home-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin: 0 5px;
+}
+
+.back-btn:hover, .home-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+.content-area {
+    padding: 40px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px;
+}
+
+.quiz-container {
+    background: rgba(255, 255, 255, 0.15);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    padding: 50px;
+    color: white;
+    width: 100%;
+    max-width: 800px;
+    backdrop-filter: blur(10px);
+}
+
+.quiz-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #FFE6EE;
+}
+
+.quiz-container p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.answer {
+    background: rgba(255, 182, 217, 0.2);
+    border-left: 4px solid #FFE6EE;
+    padding: 15px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 900px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .content-area {
+        padding: 20px;
+    }
+
+    .quiz-container {
+        padding: 30px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>📦 Kinetic Energy Sorter</h1>
+    <div>
+        <a href="kinetic.html" class="back-btn">← Back</a>
+        <a href="index.html" class="home-btn">Home</a>
+    </div>
+</div>
+
+<div class="content-area">
+    <div class="quiz-container">
+        <h2>Categorize: Does the object have kinetic energy?</h2>
+
+        <p>1. A rolling ball</p>
+        <div class="answer">YES - The ball is moving, so it has KE</div>
+
+        <p>2. A stationary car in a parking lot</p>
+        <div class="answer">NO - The car is not moving, so KE = 0</div>
+
+        <p>3. A flying airplane</p>
+        <div class="answer">YES - The airplane is moving through the air</div>
+
+        <p>4. A book resting on a table</p>
+        <div class="answer">NO - The book is stationary</div>
+
+        <p>5. A spinning top</p>
+        <div class="answer">YES - The top is rotating/moving</div>
+
+        <p>6. A falling raindrop</p>
+        <div class="answer">YES - The raindrop is falling (moving downward)</div>
+
+        <h2 style="margin-top: 40px;">Categorize by KE comparison:</h2>
+
+        <p><strong>Which object has MORE kinetic energy?</strong></p>
+
+        <p>1. A 2kg object at 10 m/s OR a 10kg object at 2 m/s?</p>
+        <div class="answer">
+            Object 1: KE = ½ × 2 × (10)² = 1 × 100 = 100 J<br>
+            Object 2: KE = ½ × 10 × (2)² = 5 × 4 = 20 J<br>
+            The 2kg object at 10 m/s has MORE KE
+        </div>
+
+        <p>2. A car at 20 m/s OR a car at 10 m/s (same mass)?</p>
+        <div class="answer">The car at 20 m/s has MORE KE (4 times more because velocity is squared)</div>
+
+        <p>3. A bicycle moving at 5 m/s OR a truck at 2 m/s?</p>
+        <div class="answer">Depends on mass. Generally truck has more KE due to much larger mass, despite slower speed</div>
+
+        <p>4. An object moving forward at 10 m/s OR backward at 10 m/s?</p>
+        <div class="answer">SAME KE - KE depends on speed (magnitude), not direction. Both have same KE</div>
+
+        <p>5. A heavy slow object OR a light fast object?</p>
+        <div class="answer">The light fast object - velocity is squared in KE formula, so speed matters more than mass</div>
+
+        <p>6. An object at rest OR any moving object?</p>
+        <div class="answer">The moving object has MORE KE (stationary has KE = 0)</div>
+    </div>
+</div>
+
+</body>
+</html>

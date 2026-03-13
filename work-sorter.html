@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Work Energy Sorter - Physics Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.header {
+    padding: 40px 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #FFE6EE;
+    flex: 1;
+}
+
+.back-btn, .home-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin: 0 5px;
+}
+
+.back-btn:hover, .home-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+.content-area {
+    padding: 40px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px;
+}
+
+.quiz-container {
+    background: rgba(255, 255, 255, 0.15);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    padding: 50px;
+    color: white;
+    width: 100%;
+    max-width: 800px;
+    backdrop-filter: blur(10px);
+}
+
+.quiz-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #FFE6EE;
+}
+
+.quiz-container p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.answer {
+    background: rgba(255, 182, 217, 0.2);
+    border-left: 4px solid #FFE6EE;
+    padding: 15px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 900px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .content-area {
+        padding: 20px;
+    }
+
+    .quiz-container {
+        padding: 30px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>📦 Work Energy Sorter</h1>
+    <div>
+        <a href="work.html" class="back-btn">← Back</a>
+        <a href="index.html" class="home-btn">Home</a>
+    </div>
+</div>
+
+<div class="content-area">
+    <div class="quiz-container">
+        <h2>Categorize the following actions:</h2>
+        
+        <p><strong>Is Work Being Done?</strong> (YES or NO)</p>
+
+        <p>1. Lifting a box straight up onto a shelf</p>
+        <div class="answer">YES - Force (against gravity) and displacement (upward) are in the same direction</div>
+
+        <p>2. Holding a box still above your head</p>
+        <div class="answer">NO - There is no displacement, so no work is done (even though you're using energy)</div>
+
+        <p>3. Pushing a car sideways while it rolls forward</p>
+        <div class="answer">NO - The force is perpendicular to the motion, so no work is done on forward movement</div>
+
+        <p>4. Lowering a box slowly to the ground</p>
+        <div class="answer">YES - Force and displacement are in the same direction (downward)</div>
+
+        <p>5. Walking carrying a heavy briefcase</p>
+        <div class="answer">YES - Force is pushing you forward, and displacement is forward, so work is being done</div>
+
+        <p>6. A book resting on a table</p>
+        <div class="answer">NO - There is no motion or displacement</div>
+
+        <h2 style="margin-top: 40px;">Categorize by Type of Work:</h2>
+
+        <p><strong>Positive, Negative, or Zero Work?</strong></p>
+
+        <p>1. Friction slowing down a moving car</p>
+        <div class="answer">NEGATIVE - Friction opposes motion, so work is negative</div>
+
+        <p>2. A rope pulling a sled forward</p>
+        <div class="answer">POSITIVE - Force and displacement are in same direction</div>
+
+        <p>3. Air resistance acting on a falling ball (sideways wind)</p>
+        <div class="answer">ZERO - Air resistance perpendicular to motion does zero work on vertical motion</div>
+
+        <p>4. Gravity pulling a ball downward as it falls</p>
+        <div class="answer">POSITIVE - Gravity and displacement are both downward</div>
+
+        <p>5. You pushing against a wall that doesn't move</p>
+        <div class="answer">ZERO - No displacement means no work</div>
+
+        <p>6. A braking force stopping a bicycle</p>
+        <div class="answer">NEGATIVE - Brakes oppose motion direction</div>
+    </div>
+</div>
+
+</body>
+</html>

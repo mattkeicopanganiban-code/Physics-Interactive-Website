@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Work Formula Challenge - Physics Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.header {
+    padding: 40px 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #FFE6EE;
+    flex: 1;
+}
+
+.back-btn, .home-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin: 0 5px;
+}
+
+.back-btn:hover, .home-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+.content-area {
+    padding: 40px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px;
+}
+
+.quiz-container {
+    background: rgba(255, 255, 255, 0.15);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    padding: 50px;
+    color: white;
+    width: 100%;
+    max-width: 800px;
+    backdrop-filter: blur(10px);
+}
+
+.quiz-container h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #FFE6EE;
+}
+
+.question {
+    margin-bottom: 35px;
+}
+
+.question p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 15px;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.formula-input {
+    flex: 1;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+}
+
+.formula-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.submit-btn {
+    background: rgba(255, 182, 217, 0.8);
+    color: #b30059;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: rgba(255, 182, 217, 1);
+    transform: translateY(-3px);
+}
+
+.answer {
+    background: rgba(255, 182, 217, 0.2);
+    border-left: 4px solid #FFE6EE;
+    padding: 15px 20px;
+    border-radius: 5px;
+    color: rgba(255, 255, 255, 0.9);
+    display: none;
+}
+
+.answer.show {
+    display: block;
+}
+
+.answer-text {
+    font-style: italic;
+}
+
+.result {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.correct {
+    color: #90EE90;
+}
+
+.incorrect {
+    color: #FF6B6B;
+}
+
+@media (max-width: 900px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .content-area {
+        padding: 20px;
+    }
+
+    .quiz-container {
+        padding: 30px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>✏️ Work Formula Challenge</h1>
+    <div>
+        <a href="work.html" class="back-btn">← Back</a>
+        <a href="index.html" class="home-btn">Home</a>
+    </div>
+</div>
+
+<div class="content-area">
+    <div class="quiz-container">
+        <h2>Fill in the blanks! Type your answer and click Reveal.</h2>
+
+        <div class="question">
+            <p><strong>Question 1: Work = ______ × Distance</strong></p>
+            <div class="input-group">
+                <input type="text" class="formula-input" id="input0" placeholder="Type your answer...">
+                <button class="submit-btn" onclick="checkFormulaAnswer(0, 'Force')">Reveal Answer</button>
+            </div>
+            <div class="answer" id="answer0">
+                <div class="result" id="result0"></div>
+                <div class="answer-text">Answer: Force. The formula is W = F × d (Work = Force × Distance)</div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 2: W = F × d × cos(______)</strong></p>
+            <div class="input-group">
+                <input type="text" class="formula-input" id="input1" placeholder="Type your answer...">
+                <button class="submit-btn" onclick="checkFormulaAnswer(1, 'θ')">Reveal Answer</button>
+            </div>
+            <div class="answer" id="answer1">
+                <div class="result" id="result1"></div>
+                <div class="answer-text">Answer: θ (theta). This accounts for the angle between force and displacement. cos(0°) = 1 when they're parallel.</div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 3: If Force = 100N and Distance = 5m, then Work = ______ Joules</strong></p>
+            <div class="input-group">
+                <input type="text" class="formula-input" id="input2" placeholder="Type your answer...">
+                <button class="submit-btn" onclick="checkFormulaAnswer(2, '500')">Reveal Answer</button>
+            </div>
+            <div class="answer" id="answer2">
+                <div class="result" id="result2"></div>
+                <div class="answer-text">Answer: 500. W = 100N × 5m = 500 Joules</div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 4: Rearrange to find Force: F = ______ ÷ Distance</strong></p>
+            <div class="input-group">
+                <input type="text" class="formula-input" id="input3" placeholder="Type your answer...">
+                <button class="submit-btn" onclick="checkFormulaAnswer(3, 'Work')">Reveal Answer</button>
+            </div>
+            <div class="answer" id="answer3">
+                <div class="result" id="result3"></div>
+                <div class="answer-text">Answer: Work. From W = F × d, we get F = W ÷ d</div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 5: Power is the rate of doing work: P = W ÷ ______</strong></p>
+            <div class="input-group">
+                <input type="text" class="formula-input" id="input4" placeholder="Type your answer...">
+                <button class="submit-btn" onclick="checkFormulaAnswer(4, 'time')">Reveal Answer</button>
+            </div>
+            <div class="answer" id="answer4">
+                <div class="result" id="result4"></div>
+                <div class="answer-text">Answer: time (t). Power measures how quickly work is done. P = W/t. Unit is Watt (W).</div>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><strong>Question 6: If Force = 75N and Work = 450J, then Distance = ______ meters</strong></p>
+            <div class="input-group">
+                <input type="text" class="formula-input" id="input5" placeholder="Type your answer...">
+                <button class="submit-btn" onclick="checkFormulaAnswer(5, '6')">Reveal Answer</button>
+            </div>
+            <div class="answer" id="answer5">
+                <div class="result" id="result5"></div>
+                <div class="answer-text">Answer: 6. Distance = W ÷ F = 450 ÷ 75 = 6 meters</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function checkFormulaAnswer(index, correctAnswer) {
+    const input = document.getElementById(`input${index}`);
+    const userAnswer = input.value.trim();
+    const answerDiv = document.getElementById(`answer${index}`);
+    const resultDiv = document.getElementById(`result${index}`);
+    
+    if (userAnswer === '') {
+        resultDiv.textContent = '⚠️ Please type an answer first!';
+        resultDiv.className = 'result incorrect';
+    } else if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+        resultDiv.textContent = '✅ Correct!';
+        resultDiv.className = 'result correct';
+    } else {
+        resultDiv.textContent = '❌ Incorrect. Check the explanation below.';
+        resultDiv.className = 'result incorrect';
+    }
+    
+    answerDiv.classList.add('show');
+}
+</script>
+
+</body>
+</html>

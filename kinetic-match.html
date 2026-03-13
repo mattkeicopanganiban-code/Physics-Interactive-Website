@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kinetic Energy Concept Match - Physics Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.header {
+    padding: 40px 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #FFE6EE;
+    flex: 1;
+}
+
+.back-btn, .home-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin: 0 5px;
+}
+
+.back-btn:hover, .home-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+.content-area {
+    padding: 40px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px;
+}
+
+.quiz-container {
+    background: rgba(255, 255, 255, 0.15);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    padding: 50px;
+    color: white;
+    width: 100%;
+    max-width: 900px;
+    backdrop-filter: blur(10px);
+}
+
+.quiz-container h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #FFE6EE;
+}
+
+.match-section {
+    margin-bottom: 50px;
+}
+
+.match-section h3 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: #FFE6EE;
+}
+
+.match-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    position: relative;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.match-item {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    padding: 15px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.match-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 182, 217, 0.6);
+}
+
+.match-item.selected {
+    background: rgba(255, 182, 217, 0.3);
+    border-color: rgba(255, 182, 217, 0.8);
+    box-shadow: 0 0 10px rgba(255, 182, 217, 0.5);
+}
+
+.match-item.matched {
+    background: rgba(144, 238, 144, 0.2);
+    border-color: rgba(144, 238, 144, 0.8);
+}
+
+svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.submit-btn {
+    background: rgba(255, 182, 217, 0.8);
+    color: #b30059;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background: rgba(255, 182, 217, 1);
+    transform: translateY(-3px);
+}
+
+.result {
+    margin-top: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    display: none;
+}
+
+.result.show {
+    display: block;
+}
+
+.result.correct {
+    background: rgba(144, 238, 144, 0.2);
+    color: #90EE90;
+    border: 2px solid #90EE90;
+}
+
+.result.incorrect {
+    background: rgba(255, 107, 107, 0.2);
+    color: #FF6B6B;
+    border: 2px solid #FF6B6B;
+}
+
+@media (max-width: 900px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .content-area {
+        padding: 20px;
+    }
+
+    .quiz-container {
+        padding: 30px;
+    }
+
+    .match-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>🃏 Kinetic Energy Concept Match</h1>
+    <div>
+        <a href="kinetic.html" class="back-btn">← Back</a>
+        <a href="index.html" class="home-btn">Home</a>
+    </div>
+</div>
+
+<div class="content-area">
+    <div class="quiz-container">
+        <h2>Connect the KE concepts with their relationships!</h2>
+        <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 20px;">Click a term on the left, then click a definition on the right to connect them with a line.</p>
+
+        <div class="match-section">
+            <h3>Set 1: KE Concepts</h3>
+            <div class="match-grid" id="matchGrid1">
+                <div class="column">
+                    <div class="match-item" onclick="selectItem(this, 'set1-left', 0)">1. Kinetic Energy</div>
+                    <div class="match-item" onclick="selectItem(this, 'set1-left', 1)">2. Velocity</div>
+                    <div class="match-item" onclick="selectItem(this, 'set1-left', 2)">3. Momentum</div>
+                    <div class="match-item" onclick="selectItem(this, 'set1-left', 3)">4. Mass</div>
+                </div>
+                <div class="column">
+                    <div class="match-item" onclick="selectItem(this, 'set1-right', 0)">A) How fast something moves (no direction)</div>
+                    <div class="match-item" onclick="selectItem(this, 'set1-right', 1)">B) The amount of matter in an object</div>
+                    <div class="match-item" onclick="selectItem(this, 'set1-right', 2)">C) How fast something moves in a direction</div>
+                    <div class="match-item" onclick="selectItem(this, 'set1-right', 3)">D) Energy due to motion of an object</div>
+                </div>
+                <svg id="svg1"></svg>
+            </div>
+        </div>
+
+        <div class="match-section">
+            <h3>Set 2: How Changes Affect KE</h3>
+            <div class="match-grid" id="matchGrid2">
+                <div class="column">
+                    <div class="match-item" onclick="selectItem(this, 'set2-left', 0)">1. Double the mass...</div>
+                    <div class="match-item" onclick="selectItem(this, 'set2-left', 1)">2. Double the velocity...</div>
+                    <div class="match-item" onclick="selectItem(this, 'set2-left', 2)">3. Triple the mass...</div>
+                    <div class="match-item" onclick="selectItem(this, 'set2-left', 3)">4. Halve the velocity...</div>
+                </div>
+                <div class="column">
+                    <div class="match-item" onclick="selectItem(this, 'set2-right', 0)">A) KE becomes 1/4 of original</div>
+                    <div class="match-item" onclick="selectItem(this, 'set2-right', 1)">B) KE triples</div>
+                    <div class="match-item" onclick="selectItem(this, 'set2-right', 2)">C) KE doubles</div>
+                    <div class="match-item" onclick="selectItem(this, 'set2-right', 3)">D) KE quadruples</div>
+                </div>
+                <svg id="svg2"></svg>
+            </div>
+        </div>
+
+        <button class="submit-btn" onclick="checkAllMatches()">Check All Matches</button>
+        <div class="result" id="resultDiv"></div>
+    </div>
+</div>
+
+<script>
+let set1Matches = [null, null, null, null];
+let set2Matches = [null, null, null, null];
+let selectedLeft = { set1: null, set2: null };
+let connections = { set1: [], set2: [] };
+
+const correctAnswers = {
+    set1: [3, 2, 0, 1], // 1→D, 2→C, 3→A, 4→B
+    set2: [2, 3, 1, 0]  // 1→C, 2→D, 3→B, 4→A
+};
+
+function selectItem(element, side, index) {
+    const setNumber = side.split('-')[0];
+    const sideType = side.split('-')[1];
+    
+    if (sideType === 'left') {
+        document.querySelectorAll(`#matchGrid${setNumber.slice(-1)} .column:first-child .match-item`).forEach(item => {
+            item.classList.remove('selected');
+        });
+        element.classList.add('selected');
+        selectedLeft[setNumber] = index;
+    } else {
+        if (selectedLeft[setNumber] !== null) {
+            const setNum = setNumber.slice(-1);
+            const matchesArray = setNumber === 'set1' ? set1Matches : set2Matches;
+            
+            matchesArray[selectedLeft[setNumber]] = index;
+            
+            const leftItems = document.querySelectorAll(`#matchGrid${setNum} .column:first-child .match-item`);
+            const rightItems = document.querySelectorAll(`#matchGrid${setNum} .column:last-child .match-item`);
+            
+            leftItems[selectedLeft[setNumber]].classList.add('matched');
+            rightItems[index].classList.add('matched');
+            
+            leftItems.forEach(item => item.classList.remove('selected'));
+            selectedLeft[setNumber] = null;
+            
+            drawLine(setNum);
+        }
+    }
+}
+
+function drawLine(setNum) {
+    const svg = document.getElementById(`svg${setNum}`);
+    const grid = document.getElementById(`matchGrid${setNum}`);
+    svg.innerHTML = '';
+    
+    const leftItems = grid.querySelectorAll('.column:first-child .match-item');
+    const rightItems = grid.querySelectorAll('.column:last-child .match-item');
+    
+    const matches = setNum === '1' ? set1Matches : set2Matches;
+    
+    matches.forEach((rightIndex, leftIndex) => {
+        if (rightIndex !== null) {
+            const leftRect = leftItems[leftIndex].getBoundingClientRect();
+            const rightRect = rightItems[rightIndex].getBoundingClientRect();
+            const gridRect = grid.getBoundingClientRect();
+            
+            const x1 = leftRect.right - gridRect.left;
+            const y1 = leftRect.top - gridRect.top + leftRect.height / 2;
+            const x2 = rightRect.left - gridRect.left;
+            const y2 = rightRect.top - gridRect.top + rightRect.height / 2;
+            
+            const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+            line.setAttribute('x1', x1);
+            line.setAttribute('y1', y1);
+            line.setAttribute('x2', x2);
+            line.setAttribute('y2', y2);
+            line.setAttribute('stroke', '#FFD700');
+            line.setAttribute('stroke-width', '3');
+            line.setAttribute('stroke-dasharray', '5,5');
+            
+            svg.appendChild(line);
+        }
+    });
+}
+
+function checkAllMatches() {
+    const resultDiv = document.getElementById('resultDiv');
+    
+    let set1Correct = true;
+    let set2Correct = true;
+    
+    for (let i = 0; i < 4; i++) {
+        if (set1Matches[i] !== correctAnswers.set1[i]) set1Correct = false;
+        if (set2Matches[i] !== correctAnswers.set2[i]) set2Correct = false;
+    }
+    
+    if (set1Correct && set2Correct) {
+        resultDiv.textContent = '✅ Perfect! All connections are correct!';
+        resultDiv.className = 'result show correct';
+    } else {
+        resultDiv.textContent = '❌ Some connections are incorrect. Try again!';
+        resultDiv.className = 'result show incorrect';
+    }
+}
+</script>
+
+</body>
+</html>

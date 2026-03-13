@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Potential Energy Sorter - Physics Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.header {
+    padding: 40px 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #FFE6EE;
+    flex: 1;
+}
+
+.back-btn, .home-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin: 0 5px;
+}
+
+.back-btn:hover, .home-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+.content-area {
+    padding: 40px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px;
+}
+
+.quiz-container {
+    background: rgba(255, 255, 255, 0.15);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    padding: 50px;
+    color: white;
+    width: 100%;
+    max-width: 800px;
+    backdrop-filter: blur(10px);
+}
+
+.quiz-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #FFE6EE;
+}
+
+.quiz-container p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.answer {
+    background: rgba(255, 182, 217, 0.2);
+    border-left: 4px solid #FFE6EE;
+    padding: 15px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 900px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .content-area {
+        padding: 20px;
+    }
+
+    .quiz-container {
+        padding: 30px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>📦 Potential Energy Sorter</h1>
+    <div>
+        <a href="potential.html" class="back-btn">← Back</a>
+        <a href="index.html" class="home-btn">Home</a>
+    </div>
+</div>
+
+<div class="content-area">
+    <div class="quiz-container">
+        <h2>Categorize the type of PE in each scenario:</h2>
+
+        <p>1. A book sitting on a bookshelf</p>
+        <div class="answer">GRAVITATIONAL PE - The book has height above the ground</div>
+
+        <p>2. A stretched rubber band</p>
+        <div class="answer">ELASTIC PE - The rubber band is deformed from its natural shape</div>
+
+        <p>3. Batteries in a flashlight</p>
+        <div class="answer">CHEMICAL PE - Energy stored in chemical bonds ready to be released</div>
+
+        <p>4. A compressed spring in a toy</p>
+        <div class="answer">ELASTIC PE - The spring is compressed and stores elastic potential energy</div>
+
+        <p>5. An apple hanging from a tree branch</p>
+        <div class="answer">GRAVITATIONAL PE - The apple has height above the ground</div>
+
+        <p>6. Wood before it's burned</p>
+        <div class="answer">CHEMICAL PE - Energy stored in the chemical bonds of wood</div>
+
+        <h2 style="margin-top: 40px;">Categorize by PE comparison:</h2>
+
+        <p><strong>Which has MORE potential energy?</strong></p>
+
+        <p>1. A 5kg object at 2m height OR a 3kg object at 4m height?</p>
+        <div class="answer">
+            5kg at 2m: PE = 5 × 10 × 2 = 100 J<br>
+            3kg at 4m: PE = 3 × 10 × 4 = 120 J<br>
+            Answer: The 3kg object at 4m has MORE PE
+        </div>
+
+        <p>2. A spring stretched 10cm OR a spring stretched 5cm?</p>
+        <div class="answer">The spring stretched 10cm has MORE PE (PE ∝ x², so doubled stretch = 4x energy)</div>
+
+        <p>3. A ball at 10m height at Earth OR at 10m height on the Moon?</p>
+        <div class="answer">The ball at 10m on Earth has MORE PE (g on Earth ≈ 10 m/s²; g on Moon ≈ 1.6 m/s²)</div>
+
+        <p>4. An object at sea level OR an object at mountain top (same mass)?</p>
+        <div class="answer">The object at the mountain top has MORE PE (greater height = greater gravitational PE)</div>
+    </div>
+</div>
+
+</body>
+</html>
